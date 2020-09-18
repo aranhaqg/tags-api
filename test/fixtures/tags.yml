@@ -1,1 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+tag_one:
+  name: pending
+  count: 2
+
+tag_two:
+  name: done
+  count: 1
