@@ -1,6 +1,3 @@
-default: &default
-  adapter: postgresql
 test:
-  <<: *default
-  database: tags_api_db_test
-  encoding: utf8
+  adapter: postgresql
+  database: travis_ci_test
