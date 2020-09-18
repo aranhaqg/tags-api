@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+ - 2.7.1
+services:
+  - postgresql
+env:
+  - DB=postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:create db:migrate --trace
+  - bundle exec rails test
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c "CREATE DATABASE aranha_events_test;" -U postgres
+before_install:
+  - gem update --system
+  - gem install bundler
