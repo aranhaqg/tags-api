@@ -4,10 +4,18 @@ module Types
     # They will be entry points for queries on your schema.
 
     # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    field :all_tickets, [TicketType], null: false,
+      description: "Show all tickets"
+    
+      def all_tickets
+      Ticket.all
+    end
+
+    field :all_tags, [TagType], null: false,
+      description: "Show all tickets"
+    
+      def all_tags
+      Tag.all
     end
   end
 end
