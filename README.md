@@ -9,7 +9,8 @@ Tags API is a Rails GraphQl API that accepts JSON payload to the path '/graphql'
   "tags" : ["tag1", "tag2"]
 }
 ```
-When that happens, the app try to create a Ticket with these attributes. If the ticket is valid, it triggers a webhook to https://webhook.site with a payload containing the the tag with the highest count. 
+When that happens, the app try to create a Ticket with these attributes. 
+If the ticket is valid, the ticket s saved at the database and a callback triggers a webhook to https://webhook.site with a payload containing the the tag with the highest count. 
 
 This app uses:
 
@@ -64,13 +65,14 @@ With GraphQL is not possible to change the status code when returning model vali
 # How to test the API
 The GraphQL interface have a docs session that list all possible queries and mutations. The link to this interface is https://secure-depths-05821.herokuapp.com/graphiql.
 
-Above we have examples of mutations and queries:
+In this app you can: create tickets, list all tickets and list all tags.
+Above we have examples of the respective mutation and queries:
 
 ```
 mutation {
   createTicket (input: {
     userId: 2, 
-		title: "Davi Aranha",
+    title: "Davi Aranha",
     tags: ["Pending"]
   }){
     ticket{
@@ -83,20 +85,19 @@ mutation {
 }
 
 {
-  allTags {
-    id
-    name
-    count
-  
-  }
   allTickets {
     id
     userId
     title
     tags
-  }  
+  }
+  allTags {
+    id
+    name
+    count
+  } 
 }
 
 ```
 
-If you don't wanna use graphiql you can use the same payload and post it to '/graphql' endpoint.
+If you don't wanna use graphql interface you can use the same payload and post it to https://secure-depths-05821.herokuapp.com/graphql endpoint.
