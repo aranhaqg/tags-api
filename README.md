@@ -10,7 +10,7 @@ Tags API is a Rails GraphQl API that accepts JSON payload to the path '/graphql'
 }
 ```
 When that happens, the app try to create a Ticket with these attributes. 
-If the ticket is valid, the ticket s saved at the database and a callback triggers a webhook to https://webhook.site with a payload containing the the tag with the highest count. 
+If the ticket is valid, the tickets saved at the database and a callback triggers a webhook to https://webhook.site with a payload containing the the tag with the highest count. 
 
 This app uses:
 
@@ -39,7 +39,7 @@ The [Tag](/app/models/tag.rb) entity it's composed of the following properties:
 * count: Integer
 
 ## Important
-With GraphQL is not possible to change the status code when returning model validation errors. When a error occurs, GraphQl return status code 200 and a array with all errors. Exmaple of a returning error:
+With GraphQL is not possible to change the status code when returning model validation errors. When a error occurs, GraphQl return status code 200 and a array with all errors. Exmaple of returning an error:
 
 ```json
 {
