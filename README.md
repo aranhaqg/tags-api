@@ -10,7 +10,7 @@ Tags API is a Rails GraphQl API that accepts JSON payload to the path '/graphql'
 }
 ```
 When that happens, the app try to create a Ticket with these attributes. 
-If the ticket is valid, the tickets saved at the database and a callback triggers a webhook to https://webhook.site with a payload containing the the tag with the highest count. 
+If the ticket is valid, the ticket is saved at the database and a callback triggers a webhook to https://webhook.site with a payload containing the the tag with the highest count. 
 
 This app uses:
 
@@ -22,6 +22,7 @@ This app uses:
 For more details check [Gemfile](Gemfile).
 
 This app is published at Heroku and you can access the graphql interface here: https://secure-depths-05821.herokuapp.com/graphiql
+You can also run locally with docker if you wish running ```docker-compose up``` on your terminal.  
 
 ## Entities
 ### Ticket
